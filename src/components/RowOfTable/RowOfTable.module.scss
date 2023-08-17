@@ -1,0 +1,12 @@
+.table__row{
+    display:grid;
+    grid-template-columns: 1fr 2fr 3fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .table__unit{
+        padding: 10px 20px;
+        text-align: center;
+        border: 1px solid green;
+    }
+}

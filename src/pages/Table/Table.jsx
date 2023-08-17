@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import st from './Table.module.scss'
+import RowOfTable from '../../components/RowOfTable/RowOfTable'
 
-export default function Table() {
+export default function Table(props) {
+    // const {arr} = props;
+
     return (
-        <div>Table</div>
+        <div className={st.container}>
+        {props.arr.map((item, index) => (
+
+            <RowOfTable item={item}/>
+        ))}
+        </div>
+        
     )
 }
