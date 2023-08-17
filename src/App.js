@@ -1,17 +1,21 @@
-import './App.css';
-import Card from './components/Card';
-import Table from './components/Table';
-import Home from './components/Home';
-import Game from './components/Game';
-
+import './style/App.scss';
+import Slider from './pages/Slider/Slider';
+import Table from './pages/Table/Table';
+import Home from './pages/Home/Home';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import words from './data/words.json'
+import Cards from './pages/Cards/Cards'
 
 function App() {
   return (
   <>
-    <Card/>
-    <Table/>
-    <Game/>
+    <Header/>
     <Home/>
+    <Cards arr={words}/>
+    <Slider/>
+    <Table/>
+    <Footer/>
   </>
   );
 }
