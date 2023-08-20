@@ -1,5 +1,18 @@
-.card{
-    border: 1px solid green;
-    width: 150px;
+.slider__card{
+    display:flex;
+    flex-direction: column;
+
+    border: 2px solid green;
+    width: 200px;
     height: 300px;
+    border-radius: 10px;
+    text-align: center;
+
+    .slider__word{
+        color: green;
+        font-weight: 400;
+    }
+    
 }
+
+

@@ -3,12 +3,11 @@ import st from './Table.module.scss'
 import RowOfTable from '../../components/RowOfTable/RowOfTable'
 
 export default function Table(props) {
-    // const {arr} = props;
+    const {arr} = props;
 
     return (
         <div className={st.container}>
-        {props.arr.map((item, index) => (
-
+        {arr.map((item, index) => (
             <RowOfTable item={item}/>
         ))}
         </div>

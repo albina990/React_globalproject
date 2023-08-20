@@ -1,0 +1,22 @@
+.container{
+    max-width: 1000px;
+    margin:20px auto;
+}
+.slider{
+    max-width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:0 auto;
+
+
+    .slider__arrow{
+        background-color: green;
+        color: white;
+        font-weight: bold;
+        border-radius: 20px;
+        height: 40px;
+        width:40px;
+        cursor: pointer;
+    }
+}

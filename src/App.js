@@ -13,7 +13,7 @@ function App() {
     <Header/>
     <Home/>
     <Cards arr={words}/>
-    <Slider/>
+    <Slider arr={words}/>
     <Table arr={words}/>
     <Footer/>
   </>
