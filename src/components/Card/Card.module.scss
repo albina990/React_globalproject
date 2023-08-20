@@ -15,4 +15,22 @@
     
 }
 
+.flashcards__card{
+    display:flex;
+    padding: 10px;
+    flex-direction: column;
+    border: 1px solid green;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    border-radius: 10px;
+
+
+    .flashcard__word{
+        color: green;
+        font-weight: 400;
+
+    }
+}
+
 

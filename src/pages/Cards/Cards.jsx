@@ -1,32 +1,16 @@
-import React, { useState } from 'react'
-import st from './Cards.module.scss'
-import Button from '../../components/Button/Button'
+import React, { useState } from "react"
+import st from "./Cards.module.scss"
+import Card from "../../components/Card/Card"
 
 export default function Cards(props) {
-const [selectedIndex, setSelectedIndex] = useState(false);
 
-const handleChange = (index) =>{
-    setSelectedIndex(index);
-}
-
-
-  return (
-    <>
-    <div className={st.container}>
-        {props.arr.map((word, index) => 
-        <div className={st.card} key={index}>
-            <h3 className={st.card__word}>{word.english}</h3>
-            <p>{word.transcription}</p>
-            {index === selectedIndex ? <p>{word.russian}</p> : <p onClick={() => handleChange(index)}><Button styleName='flashcards__btn' content='Показать' /></p>}
-            {/* <p>{word.russian}</p>
-            <Button styleName='flashcards__btn' content='Показать'/> */}
-        </div>
-        
-        )}
-
-    </div>
-    
-    
-    </>
-  )
+    return (
+        <>
+            <div className={st.container}>
+                {props.arr.map((word, index) => (
+                    <Card item={word} index={index} styleName="flashcards__card" />
+                ))}
+            </div>
+        </>
+    )
 }

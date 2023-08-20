@@ -4,19 +4,31 @@ import Card from '../../components/Card/Card'
 
 export default function Slider(props) {
   const {arr} = props;
-  const [isClicked, setClicked] = useState(false);
-  let index = 0;
-  const handleClick = () => {
-    index = Math.random() * 10;
+  const [showedIndex, setIndex] = useState(0);
+  const showNextCard = () => {
+    if(showedIndex !== 30){
+      setIndex(showedIndex + 1);
+    } else {
+      setIndex(0);
+    }
+
+  }
+
+  const showPreviousCard = () => {
+    if(showedIndex !== 0){
+      setIndex(showedIndex - 1);
+    } else {
+      setIndex(30);
+    }
 
   }
 
   return (
     <div className={st.container}>
       <div className={st.slider}>
-      <button className={st.slider__arrow}>←</button>
-        <Card item={arr[index]}/>
-      <button className={st.slider__arrow}>→</button>
+      <button className={st.slider__arrow} onClick={() => showPreviousCard()}>←</button>
+        <Card item={arr[showedIndex]} styleName='slider__card' index={showedIndex}/>
+      <button className={st.slider__arrow} onClick={() => showNextCard()}>→</button>
       </div>
     </div>
   )
