@@ -5,6 +5,14 @@ import Card from '../../components/Card/Card'
 export default function Slider(props) {
   const {arr} = props;
   const [showedIndex, setIndex] = useState(0);
+
+  const [childIndex, setChildIndex] = useState(null);
+
+    const handleChildClick = (index) => {
+        setChildIndex(index);
+    }
+
+
   const showNextCard = () => {
     if(showedIndex !== 30){
       setIndex(showedIndex + 1);
@@ -27,7 +35,7 @@ export default function Slider(props) {
     <div className={st.container}>
       <div className={st.slider}>
       <button className={st.slider__arrow} onClick={() => showPreviousCard()}>←</button>
-        <Card item={arr[showedIndex]} styleName='slider__card' index={showedIndex}/>
+        <Card item={arr[showedIndex]} styleName='slider' index={showedIndex}  childIndex={childIndex} onChildClick={handleChildClick}/>
       <button className={st.slider__arrow} onClick={() => showNextCard()}>→</button>
       </div>
     </div>

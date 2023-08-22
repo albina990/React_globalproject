@@ -7,13 +7,13 @@ export default function Cards(props) {
 
     const handleChildClick = (index) => {
         setChildIndex(index);
-      }
+    }
 
     return (
         <>
             <div className={st.container} >
                 {props.arr.map((word, index) => (
-                    <Card item={word} index={index} childIndex={childIndex} onChildClick={handleChildClick} styleName="flashcards__card" />
+                    <Card item={word} index={index} childIndex={childIndex} onChildClick={handleChildClick} styleName="flashcards" />
                 ))}
             </div>
         </>
