@@ -11,10 +11,12 @@ function App() {
   return (
   <>
     <Header/>
+    <div className="main">
     <Home/>
     <Cards arr={words}/>
     <Slider arr={words}/>
     <Table arr={words}/>
+    </div>
     <Footer/>
   </>
   );

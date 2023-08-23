@@ -1,6 +1,6 @@
 .table__row{
     display:grid;
-    grid-template-columns: 1fr 2fr 3fr 1fr;
+    grid-template-columns: 2fr 2fr 3fr 1fr;
     gap: 10px;
     margin-bottom: 10px;
 
@@ -8,5 +8,19 @@
         padding: 10px 20px;
         text-align: center;
         border: 1px solid green;
+        font-size: 16px;
+        background-color: rgb(212, 247, 179);
+    }
+    input.table__unit{
+        text-align: left;
+        border: 1px solid red;
+    }
+    .table__unit:last-child{
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-around;
+    }
+    img{
+        width: 30px;
     }
 }
