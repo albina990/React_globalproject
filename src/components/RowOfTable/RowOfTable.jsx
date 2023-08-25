@@ -9,6 +9,7 @@ export default function RowOfTable(props) {
     const { item } = props
     const [isEditClicked, setEdit] = useState(false)
     const [isDeleted, setDelete] = useState(false)
+    
     const onClickEdit = () => {
         setEdit(true)
     }

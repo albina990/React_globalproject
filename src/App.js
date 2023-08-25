@@ -7,18 +7,31 @@ import Header from './components/Header/Header';
 import words from './data/words.json'
 import Cards from './pages/Cards/Cards'
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 function App() {
   return (
-  <>
-    <Header/>
-    <div className="main">
-    <Home/>
-    <Cards arr={words}/>
-    <Slider arr={words}/>
-    <Table arr={words}/>
+  
+    <Router>
+    <div>
+      <Header/>
+
+      <Routes>
+        <Route path="/table" element={<Table arr={words}/>} />
+        <Route path="/" element={<Home  arr={words} />} />
+        <Route path="/slider" element={<Slider arr={words}/>} />
+      </Routes>
+      <Footer/>
     </div>
-    <Footer/>
-  </>
+  </Router>
+
+    
+  
   );
 }
 

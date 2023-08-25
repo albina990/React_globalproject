@@ -8,7 +8,7 @@ export default function Table(props) {
     return (
         <div className={st.container}>
         {arr.map((item, index) => (
-            <RowOfTable item={item}/>
+            <RowOfTable item={item} key={index}/>
         ))}
         </div>
         
