@@ -6,14 +6,14 @@ import save from "../../assets/images/save.png"
 import cancel from "../../assets/images/cancel.png"
 
 export default function RowOfTable(props) {
-    const { item } = props
+    const { arr, item } = props
     const [isEditClicked, setEdit] = useState(false)
     const [isDeleted, setDelete] = useState(false)
     
     const onClickEdit = () => {
         setEdit(true)
     }
-    const onClickDelete = () => {
+    const onClickDelete = (arr) => {
         
     }
 

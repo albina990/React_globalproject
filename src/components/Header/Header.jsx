@@ -1,12 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 import st from './Header.module.scss';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 export default function Header() {
   return (
@@ -14,15 +9,15 @@ export default function Header() {
     <div className={st.header}>
       <Button styleName='header__btn' content='Войти'/>
       <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
+          <ul className={st.header__list}>
+            <li className={st.header__list__item}>
+              <NavLink to="/">Home</NavLink>
             </li>
-            <li>
-              <Link to="/slider">Training</Link>
+            <li className={st.header__list__item}>
+              <NavLink to="/slider">Training</NavLink>
             </li>
-            <li>
-              <Link to="/table">All words</Link>
+            <li className={st.header__list__item}>
+              <NavLink to="/table">All words</NavLink>
             </li>
           </ul>
         </nav>
