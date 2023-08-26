@@ -14,7 +14,7 @@ export default function Slider(props) {
 
 
   const showNextCard = () => {
-    if(showedIndex !== 30){
+    if(showedIndex !== 31){
       setIndex(showedIndex + 1);
     } else {
       setIndex(0);
@@ -26,7 +26,7 @@ export default function Slider(props) {
     if(showedIndex !== 0){
       setIndex(showedIndex - 1);
     } else {
-      setIndex(30);
+      setIndex(31);
     }
 
   }
