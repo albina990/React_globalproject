@@ -6,8 +6,8 @@ import save from "../../assets/images/save.png"
 import cancel from "../../assets/images/cancel.png"
 
 export default function RowOfTable(props) {
-    const { item, delWord } = props;
-    const [isEditClicked, setEdit] = useState(false)
+    const { item, delWord , editClicked }  = props;
+    const [isEditClicked, setEdit] = useState(editClicked)
     
     const onClickEdit = () => {
         setEdit(true)
@@ -24,9 +24,9 @@ export default function RowOfTable(props) {
                 <>
                     <div className={st.table__row}>
                         
-                        <input type="text" value={item.english} className={st.table__unit}></input>
-                        <input type="text" value={item.transcription} className={st.table__unit}></input>
-                        <input type="text" value={item.russian} className={st.table__unit}></input>
+                        <input type="text" value={item ? item.english : ''} className={st.table__unit}></input>
+                        <input type="text" value={item ? item.transcription : ''} className={st.table__unit}></input>
+                        <input type="text" value={item ? item.russian : ''} className={st.table__unit}></input>
                         <div className={st.table__unit}>
                             <img src={save} alt="save"></img>
                             <img src={cancel} alt="cancel" onClick={onClickCancel}></img>
