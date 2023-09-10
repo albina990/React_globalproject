@@ -6,7 +6,12 @@
     color: white;
     border-radius: 7px;
     cursor:pointer;
+
 }
+.flashcards__btn:focus{
+    background-color:rgb(154, 219, 170);
+}
+
 .header__btn{
     background-color: rgb(109, 175, 10);
     border: 1px solid white;
@@ -15,3 +20,4 @@
     border-radius: 7px;
     cursor:pointer;
     }
+

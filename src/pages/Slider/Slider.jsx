@@ -8,8 +8,11 @@ export default function Slider(props) {
 
   const [childIndex, setChildIndex] = useState(null);
 
+  const[count, setCount] = useState(0);
+
     const handleChildClick = (index) => {
         setChildIndex(index);
+        setCount(count + 1); //увеличивает count на 1 каждый раз, когда открывается перевод нового слова
     }
 
 
@@ -28,16 +31,17 @@ export default function Slider(props) {
     } else {
       setIndex(31);
     }
-
   }
 
   return (
     <div className={st.container}>
+      
       <div className={st.slider}>
       <button className={st.slider__arrow} onClick={() => showPreviousCard()}>←</button>
-        <Card item={arr[showedIndex]} styleName='slider' index={showedIndex}  childIndex={childIndex} onChildClick={handleChildClick}/>
+        <Card item={arr[showedIndex]} styleName='slider' index={showedIndex}  childIndex={childIndex} onChildClick={handleChildClick} />
       <button className={st.slider__arrow} onClick={() => showNextCard()}>→</button>
       </div>
+      <p className={st.text}>Изучено: {count} слов</p>
     </div>
   )
 }

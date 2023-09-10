@@ -9,11 +9,12 @@ export default function Cards(props) {
         setChildIndex(index);
     }
 
+
     return (
         <>
             <div className={st.container} >
                 {props.arr.map((word, index) => (
-                    <Card item={word} index={index} childIndex={childIndex} onChildClick={handleChildClick} styleName="flashcards" />
+                    <Card item={word} index={index} childIndex={childIndex} onChildClick={handleChildClick} styleName="flashcards" key={index}/>
                 ))}
             </div>
         </>
