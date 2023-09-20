@@ -6,29 +6,60 @@ import save from "../../assets/images/save.png"
 import cancel from "../../assets/images/cancel.png"
 
 export default function RowOfTable(props) {
-    const { item, delWord , editClicked }  = props;
-    const [isEditClicked, setEdit] = useState(editClicked)
+    const { item, delWord , editClicked, saveWord, arr, childIndex}  = props;
+    const [isEditClicked, setEdit] = useState(editClicked);
+
+    let [text, setText] = useState(item);
+
+    // let [textEnglish, setTextEnglish] = useState(item.english);
+    // let [textRussian, setTextRussian] = useState(item.russian);
+    // let [textTransc, setTextTransc] = useState(item.transcription);
     
+
     const onClickEdit = () => {
         setEdit(true)
     }
 
-
     const onClickCancel = () => {
-    setEdit(false)
+        setEdit(false)
     }
+
+    const onChange = (e) => {
+        setText({...text,
+            [e.target.name] : e.target.value});
+    }
+
+    // const onChangeEnglish = (e) => {
+    //     setTextEnglish(e.target.value)
+    // }
+
+    // const onChangeRussian = (e) => {
+    //     setTextRussian(e.target.value)
+    // }
+
+    // const onChangeTransc = (e) => {
+    //     setTextTransc(e.target.value)
+    // }
+
+    const saveNewWord = () => {
+        // let newItem = {"english" : textEnglish, "transcription" : textTransc, "russian" : textRussian, "id" : arr.length };
+        let newItem = {"english" : text['english'], "transcription" : text['transcription'], "russian" : text['russian'], "id" : `${text['english']}_${Math.random()}` };
+        saveWord(newItem, childIndex);
+        setEdit(false);
+
+    }
+
 
     return (
         <>
             {isEditClicked ? (
                 <>
                     <div className={st.table__row}>
-                        
-                        <input type="text" value={item ? item.english : ''} className={st.table__unit}></input>
-                        <input type="text" value={item ? item.transcription : ''} className={st.table__unit}></input>
-                        <input type="text" value={item ? item.russian : ''} className={st.table__unit}></input>
+                        <input type="text" className={st.table__unit} onChange={onChange} value={text['english']} name="english" ></input>
+                        <input type="text" onChange={onChange} value={text['transcription']} className={st.table__unit} name="transcription"></input>
+                        <input type="text" onChange={onChange} value={text['russian']} className={st.table__unit} name="russian"></input>
                         <div className={st.table__unit}>
-                            <img src={save} alt="save"></img>
+                            <img src={save} alt="save" onClick={() => saveNewWord()}></img>
                             <img src={cancel} alt="cancel" onClick={onClickCancel}></img>
                         </div>
                     </div>

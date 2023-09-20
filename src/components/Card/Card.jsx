@@ -3,11 +3,13 @@ import st from "./Card.module.scss"
 import Button from "../Button/Button"
 
 export default function Card(props) {
-    const { item, styleName, index, childIndex, onChildClick} = props
+    const { key, item, styleName, index, childIndex, onChildClick} = props
 
     const handleChange = () => {
         onChildClick(index);
     }
+
+
 
         return (
             <>

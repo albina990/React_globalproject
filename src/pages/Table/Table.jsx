@@ -14,8 +14,21 @@ export default function Table(props) {
 
     const onClickDelete = (word) => {
         const copyArrWords = [...arrWords];
-        const copyFilterArrUsers = copyArrWords.filter((item) => item.id !== word.id);
-        setWords(copyFilterArrUsers);
+        const copyNewArrWords = copyArrWords.filter((item) => item.id !== word.id);
+        setWords(copyNewArrWords);
+    }
+
+    const onClickSave = (word, index) => {
+        const copyArrWords = [...arrWords];
+        if(!isAddClicked){
+            const copyNewArrWords = copyArrWords.filter((item, ind) => ind !== index);
+            copyNewArrWords.unshift(word);
+            setWords(copyNewArrWords);
+        } else {
+            copyArrWords.unshift(word);
+            setWords(copyArrWords);
+        }
+        setAddClicked(false);
     }
 
     return (
@@ -23,12 +36,12 @@ export default function Table(props) {
         
         <div className={st.container}>
         
-        {isAddClicked ? <RowOfTable item='' delWord={onClickDelete} editClicked='true'/>
+        {isAddClicked ? <RowOfTable arr={arr} item='' delWord={onClickDelete} editClicked='true' saveWord={onClickSave} />
         : <div className={st.table__btn} onClick={onAddClick}>
             <Button content="Add a new word" styleName='flashcards__btn'/>
         </div>}
-        {arrWords.map((item) => (
-            <RowOfTable item={item} key={item.id} delWord={onClickDelete} editClicked=''/>
+        {arrWords.map((item, index) => (
+            <RowOfTable childIndex={index} arr={arr} item={item} key={item.id} delWord={onClickDelete} editClicked='' saveWord={onClickSave}/>
         ))}
         </div>
         </>

@@ -6,7 +6,10 @@ export default function Button(props) {
     const btnRef = useRef(null);
 
     useEffect(()=>{
-      btnRef.current.focus();
+      if(styleName === 'header__btn'){
+        btnRef.current.focus();
+      }
+      
     });
 
   return (
