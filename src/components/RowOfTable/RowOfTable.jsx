@@ -6,10 +6,11 @@ import save from "../../assets/images/save.png"
 import cancel from "../../assets/images/cancel.png"
 
 export default function RowOfTable(props) {
-    const { item, delWord , editClicked, saveWord, arr, childIndex}  = props;
+    const { item, delWord , editClicked, saveWord, childIndex}  = props;
     const [isEditClicked, setEdit] = useState(editClicked);
 
-    let [text, setText] = useState(item);
+    let [text, setText] = useState({"english" : item.english,
+"transcription" : item.transcription, "russian" : item.russian});
 
     // let [textEnglish, setTextEnglish] = useState(item.english);
     // let [textRussian, setTextRussian] = useState(item.russian);
@@ -24,9 +25,11 @@ export default function RowOfTable(props) {
         setEdit(false)
     }
 
+    //Обработчик событий для всех инпутов
     const onChange = (e) => {
         setText({...text,
             [e.target.name] : e.target.value});
+
     }
 
     // const onChangeEnglish = (e) => {
@@ -42,7 +45,6 @@ export default function RowOfTable(props) {
     // }
 
     const saveNewWord = () => {
-        // let newItem = {"english" : textEnglish, "transcription" : textTransc, "russian" : textRussian, "id" : arr.length };
         let newItem = {"english" : text['english'], "transcription" : text['transcription'], "russian" : text['russian'], "id" : `${text['english']}_${Math.random()}` };
         saveWord(newItem, childIndex);
         setEdit(false);

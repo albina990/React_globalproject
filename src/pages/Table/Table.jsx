@@ -36,7 +36,7 @@ export default function Table(props) {
         
         <div className={st.container}>
         
-        {isAddClicked ? <RowOfTable arr={arr} item='' delWord={onClickDelete} editClicked='true' saveWord={onClickSave} />
+        {isAddClicked ? <RowOfTable arr={arr} item={{}} delWord={onClickDelete} editClicked='true' saveWord={onClickSave} />
         : <div className={st.table__btn} onClick={onAddClick}>
             <Button content="Add a new word" styleName='flashcards__btn'/>
         </div>}
