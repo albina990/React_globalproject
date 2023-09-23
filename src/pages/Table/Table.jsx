@@ -7,6 +7,7 @@ export default function Table(props) {
     const { arr } = props;
     const [arrWords, setWords] = useState(arr);
     const [isAddClicked, setAddClicked] = useState(false);
+    
 
     const onAddClick = () => {
         setAddClicked(true);
@@ -30,6 +31,7 @@ export default function Table(props) {
         }
         setAddClicked(false);
     }
+
 
     return (
         <>
