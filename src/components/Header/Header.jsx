@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header>
     <div className={st.header}>
-      <Button styleName='header__btn' content='Войти'/>
+      {/* <Button styleName='header__btn' content='Login'/> */}
       <nav>
           <ul className={st.header__list}>
             <li className={st.header__list__item}>

@@ -24,7 +24,7 @@ export default function Card(props) {
                                 <p onClick={() => handleChange()}>
                                     <Button
                                         styleName="flashcards__btn"
-                                        content="Показать"
+                                        content="Show"
                                     />
                                 </p>
                             )}

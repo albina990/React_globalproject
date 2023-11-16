@@ -41,7 +41,7 @@ export default function Slider(props) {
         <Card item={arr[showedIndex]} styleName='slider' index={showedIndex}  childIndex={childIndex} onChildClick={handleChildClick} />
       <button className={st.slider__arrow} onClick={() => showNextCard()}>→</button>
       </div>
-      <p className={st.text}>Изучено: {count} слов</p>
+      <p className={st.text}> {count} words learned</p>
     </div>
   )
 }

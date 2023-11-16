@@ -9,14 +9,11 @@ export default function RowOfTable(props) {
     const { item, delWord , editClicked, saveWord, childIndex }  = props;
     const [isEditClicked, setEdit] = useState(editClicked);
     let [errors, setErrors] = useState([]);
-    let [text, setText] = useState({"english" : item.english,
-"transcription" : item.transcription, "russian" : item.russian});
+    let [text, setText] = useState({"english" : item.english || '',
+"transcription" : item.transcription || '', "russian" : item.russian || ''});
 
     let errorsArray;
 
-    // let [textEnglish, setTextEnglish] = useState(item.english);
-    // let [textRussian, setTextRussian] = useState(item.russian);
-    // let [textTransc, setTextTransc] = useState(item.transcription);
     
 
     const onClickEdit = () => {
@@ -56,7 +53,6 @@ export default function RowOfTable(props) {
 
         setErrors(errorsArray);
 
-        console.log(errors);
     }
 
     //Обработчик событий для всех инпутов
@@ -66,17 +62,6 @@ export default function RowOfTable(props) {
         
     }
 
-    // const onChangeEnglish = (e) => {
-    //     setTextEnglish(e.target.value)
-    // }
-
-    // const onChangeRussian = (e) => {
-    //     setTextRussian(e.target.value)
-    // }
-
-    // const onChangeTransc = (e) => {
-    //     setTextTransc(e.target.value)
-    // }
 
     const saveNewWord = () => {
 
@@ -84,9 +69,10 @@ export default function RowOfTable(props) {
 
         checkInputFields();
         // console.log(errors);
-        if(errors.length === 0){
+        if(errorsArray.length === 0){
             setEdit(false);
             saveWord(newItem, childIndex);
+            
         } 
 
     }
